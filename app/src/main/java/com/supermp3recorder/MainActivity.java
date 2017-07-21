@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isPlaying;
     private int mMinItemWidhth;
     private int mMaxItemWidhth;
+    private int mWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 获取屏幕宽
         WindowManager windowManager = getWindowManager();
-        int width = windowManager.getDefaultDisplay().getWidth();
-        mMaxItemWidhth = (int) (width * 0.3f);
-        mMinItemWidhth = (int) (width * 0.3f);
+        mWidth = windowManager.getDefaultDisplay().getWidth();
+        mMaxItemWidhth = (int) (mWidth * 0.6f);
+        mMinItemWidhth = (int) (mWidth * 0.3f);
 
         initRecorder();
     }
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 mTvBubble.setText(time / 1000 + "s");
                 // 语音泡泡条的长度
                 ViewGroup.LayoutParams layoutParams = mFlBubble.getLayoutParams();
-                layoutParams.width = (int) (mMinItemWidhth + (mMaxItemWidhth / 60f * time / 1000));
+                layoutParams.width = (int) (mMinItemWidhth + mMaxItemWidhth / 60f * time / 1000);
                 mFlBubble.setLayoutParams(layoutParams);
 
                 mFlBubble.setOnClickListener(new View.OnClickListener() {
