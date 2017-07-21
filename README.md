@@ -1,8 +1,7 @@
 # SuperMP3Recorder
 Android MP3录音实现
 
-![](https://github.com/xiaoexiao51/SuperMP3Recorder/blob/master/screenshot/img01.png)
-![](https://github.com/xiaoexiao51/SuperMP3Recorder/blob/master/screenshot/img02.png)
+![](https://github.com/xiaoexiao51/SuperMP3Recorder/blob/master/screenshot/img01.png)![](https://github.com/xiaoexiao51/SuperMP3Recorder/blob/master/screenshot/img02.png)
 
 代码实现：
 
