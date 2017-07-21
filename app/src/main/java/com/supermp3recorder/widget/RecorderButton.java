@@ -31,7 +31,7 @@ public class RecorderButton extends Button {
     private long startTime;
     private boolean canRecord;
     private boolean isDownTime;
-    private int mDownTime = 10;
+    private int mDownTime = 10;// 剩余10s倒计时
 
     RecorderDialog mRecorderDialog;
     private ImageView mImageView;
