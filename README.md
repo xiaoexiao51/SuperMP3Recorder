@@ -6,9 +6,7 @@ Android MP3录音实现
 
 代码实现：
 
-
-
-
+```java
 setOnRecorderListener(new RecorderButton.OnRecorderListener() {
             @Override
             public void onUpdate(int db, long time){
