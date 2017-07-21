@@ -134,10 +134,6 @@ public class RecoderUtils {
         }
     };
 
-
-    private int BASE = 1;
-    private int SPACE = 100;// 间隔取样时间
-
     /**
      * 更新麦克状态
      */
@@ -148,7 +144,7 @@ public class RecoderUtils {
             if (mOnRecorderListener != null) {
                 mOnRecorderListener.onUpdate(volume, System.currentTimeMillis() - startTime);
             }
-            mHandler.postDelayed(mUpdateMicStatusTimer, SPACE);
+            mHandler.postDelayed(mUpdateMicStatusTimer, 100);
         }
     }
 

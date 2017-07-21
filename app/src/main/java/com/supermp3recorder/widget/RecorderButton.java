@@ -3,7 +3,11 @@ package com.supermp3recorder.widget;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -53,6 +57,7 @@ public class RecorderButton extends Button {
         mImageView = mRecorderDialog.getRecordIcon();
         mTextView = mRecorderDialog.getRecordTime();
 
+        checkPermission();
         initTouchListener();
         initRecordListener();
     }
@@ -108,7 +113,7 @@ public class RecorderButton extends Button {
                             //请求获取语音权限
                             ActivityCompat.requestPermissions((Activity) mContext,
                                     new String[]{Manifest.permission.RECORD_AUDIO}, 100);
-                            canRecord = true;
+                            Toast.makeText(mContext, "语音权限被拒绝", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
@@ -176,6 +181,29 @@ public class RecorderButton extends Button {
         public void onUpdate(int db, long time);
 
         public void onStop(String filePath, long time);
+    }
+
+    private final Handler mHandler = new Handler();
+    private Runnable mRunnable = new Runnable() {
+        public void run() {
+            checkPermission();
+        }
+    };
+
+    private void checkPermission() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            // 判断是否开启语音权限
+            if ((ContextCompat.checkSelfPermission(getContext(),
+                    Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)) {
+                canRecord = true;
+            } else {
+                canRecord = false;
+            }
+        } else {
+            canRecord = true;
+        }
+        mHandler.postDelayed(mRunnable, 100);
     }
 
 }
