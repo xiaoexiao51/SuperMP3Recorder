@@ -108,4 +108,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MediaManager.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MediaManager.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MediaManager.release();
+    }
 }
