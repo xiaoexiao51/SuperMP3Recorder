@@ -1,10 +1,11 @@
 # SuperMP3Recorder
 Android MP3录音实现
 
-![](https://github.com/xiaoexiao51/SuperMP3Recorder/raw/screenshot/img01)
-![](https://github.com/xiaoexiao51/SuperMP3Recorder/raw/screenshot/img02)
+https://github.com/xiaoexiao51/SuperMP3Recorder/raw/screenshot/img01
+https://github.com/xiaoexiao51/SuperMP3Recorder/raw/screenshot/img02
 
 代码实现：
+
 mBtnRecorder.setOnRecorderListener(new RecorderButton.OnRecorderListener() {
             @Override
             public void onUpdate(int db, long time) {
