@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_bubble"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/ic_bubble"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_record03"/>
+
+        <TextView
+            android:id="@+id/tv_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="16''"
+            android:textColor="@color/color_blue"
+            android:textSize="16sp"/>
+
+    </FrameLayout>
+
+    <com.supermp3recorder.widget.RecorderButton
+        android:id="@+id/btn_recorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@color/color_green"
+        android:text="按住说话"
+        android:textColor="#FFF"/>
+
+</RelativeLayout>
