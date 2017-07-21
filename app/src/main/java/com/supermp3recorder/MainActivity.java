@@ -51,11 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRecorder() {
         mBtnRecorder.setOnRecorderListener(new RecorderButton.OnRecorderListener() {
+            /**
+             * @param db 声音分贝
+             * @param time 当前时长
+             */
             @Override
             public void onUpdate(int db, long time) {
                 mTvBubble.setText(time / 1000 + "s");
             }
 
+            /**
+             * @param filePath 录音文件
+             * @param time 录音时长
+             */
             @Override
             public void onStop(final String filePath, long time) {
                 mTvBubble.setText(time / 1000 + "s");
@@ -84,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onCompletion(MediaPlayer mediaPlayer) {
                                     isPlaying = false;
-                                    ((AnimationDrawable) ((ImageView) findViewById(R.id.iv_bubble)).getDrawable()).stop();
-                                    ((ImageView) findViewById(R.id.iv_bubble)).setImageResource(R.drawable.ic_record03);
+                                    ((AnimationDrawable) mIvBubble.getDrawable()).stop();
+                                    mIvBubble.setImageResource(R.drawable.ic_record03);
                                 }
                             });
                         }
